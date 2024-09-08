@@ -1,2 +1,3 @@
 # Ultra-clone
- Ultrakill clone but better 
+ Ultrakill clone made better by ROD studio
+ 
