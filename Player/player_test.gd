@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_object_local(Vector3.UP, -event.relative.x * global_delta * mouse_sensitivity.x)
 		$Head.rotate_object_local(Vector3.LEFT, event.relative.y * global_delta * mouse_sensitivity.y)
-		
+		clamp($Head.rotation_degrees.x, 1,50)
 		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
