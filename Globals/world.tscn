@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw27rwuokrt5c"]
+
+[ext_resource type="Script" path="res://Globals/world.gd" id="1_8rddx"]
+[ext_resource type="PackedScene" uid="uid://caiandxw13b2i" path="res://Levels/test_level_1.tscn" id="1_cq3l1"]
+[ext_resource type="PackedScene" uid="uid://d4dwynmypwdmq" path="res://Globals/scene_loader.tscn" id="1_vkaaq"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_8rddx")
+
+[node name="Scene_loader" parent="." node_paths=PackedStringArray("scene_container") instance=ExtResource("1_vkaaq")]
+scene_container = NodePath("../Level_container")
+scenes = Array[PackedScene]([ExtResource("1_cq3l1")])
+
+[node name="Level_container" type="Node" parent="."]

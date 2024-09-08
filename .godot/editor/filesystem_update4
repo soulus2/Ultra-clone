@@ -1,0 +1,5 @@
+res://Levels/test_level_1.tscn
+res://Globals/game.tscn
+res://Globals/scene_loader.tscn
+res://Globals/world.tscn
+res://Player/player_test.tscn
