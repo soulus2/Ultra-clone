@@ -1,6 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://caiandxw13b2i"]
 
 [ext_resource type="PackedScene" uid="uid://dhe4k3frfjpal" path="res://Player/player_test.tscn" id="1_3sfwc"]
+[ext_resource type="Script" path="res://Levels/test_level_1.gd" id="1_uln2k"]
+[ext_resource type="Environment" uid="uid://b3w2nysboln0c" path="res://Levels/test_level_1_env.tres" id="2_qh86k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_746ns"]
 albedo_color = Color(0.124653, 0.357438, 0.182849, 1)
@@ -35,23 +37,11 @@ albedo_color = Color(1, 0.297978, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3i3nh"]
 albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_urq8a"]
-ground_color = Color(1, 1, 1, 1)
-energy_multiplier = 4.0
-
-[sub_resource type="Sky" id="Sky_kt6ef"]
-sky_material = SubResource("PhysicalSkyMaterial_urq8a")
-
-[sub_resource type="Environment" id="Environment_7qetb"]
-background_mode = 2
-sky = SubResource("Sky_kt6ef")
-tonemap_mode = 3
-ssr_max_steps = 512
-ssr_depth_tolerance = 128.0
-fog_light_color = Color(0.506577, 0.698463, 1, 1)
-fog_density = 0.002
+[sub_resource type="BoxShape3D" id="BoxShape3D_ju6fw"]
+size = Vector3(100000, 1, 100000)
 
 [node name="Test_Level_1" type="Node"]
+script = ExtResource("1_uln2k")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -207,8 +197,17 @@ material = SubResource("StandardMaterial3D_3i3nh")
 transform = Transform3D(-0.114244, 0, -0.993453, 0, 1, 0, 0.993453, 0, -0.114244, -9.17311, 0.499979, 2.3479)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7qetb")
+environment = ExtResource("2_qh86k")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.684585, 0.272367, -0.676135, 0.709694, -0.460746, 0.532961, -0.166366, -0.844707, -0.508717, 0, 5.80978, 0)
 shadow_enabled = true
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -61.0844, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.5188, 0)
+shape = SubResource("BoxShape3D_ju6fw")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
