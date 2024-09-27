@@ -4,7 +4,6 @@ extends Node
 @export var scenes:Array[PackedScene]
 
 func load_scene(index:int) -> void:
-	print(index)
 	if len(scenes)==0:
 		Printer.print_warning("No scene array was provided")
 		return

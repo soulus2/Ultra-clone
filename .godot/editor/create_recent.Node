@@ -1,3 +1,6 @@
+Node3D
+Label
+Control
 DirectionalLight3D
 CollisionShape3D
 Area3D
@@ -7,8 +10,5 @@ WorldEnvironment
 Node
 ReflectionProbe
 MeshInstance3D
-Node3D
 Camera3D
 CharacterBody3D
-CSGSphere3D
-CSGMesh3D

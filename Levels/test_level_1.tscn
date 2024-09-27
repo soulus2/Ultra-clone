@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=3 uid="uid://caiandxw13b2i"]
+[gd_scene load_steps=15 format=3 uid="uid://caiandxw13b2i"]
 
-[ext_resource type="PackedScene" uid="uid://dhe4k3frfjpal" path="res://Player/player_test.tscn" id="1_3sfwc"]
 [ext_resource type="Script" path="res://Levels/test_level_1.gd" id="1_uln2k"]
 [ext_resource type="Environment" uid="uid://b3w2nysboln0c" path="res://Levels/test_level_1_env.tres" id="2_qh86k"]
 
@@ -40,7 +39,7 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ju6fw"]
 size = Vector3(100000, 1, 100000)
 
-[node name="Test_Level_1" type="Node"]
+[node name="Test_Level_1" type="Node3D"]
 script = ExtResource("1_uln2k")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
@@ -192,9 +191,6 @@ material = SubResource("StandardMaterial3D_6syuv")
 transform = Transform3D(1, 0, 0, 0, 0.0174524, -0.999848, 0, 0.999848, 0.0174524, 7, 0.453122, -0.0396431)
 size = Vector3(1, 1, 10)
 material = SubResource("StandardMaterial3D_3i3nh")
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_3sfwc")]
-transform = Transform3D(-0.114244, 0, -0.993453, 0, 1, 0, 0.993453, 0, -0.114244, -9.17311, 0.499979, 2.3479)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_qh86k")
