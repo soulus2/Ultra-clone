@@ -1,11 +1,6 @@
 res://Globals/game.tscn
-res://Levels/test_level_1_env.tres
-res://Player/player_test.gd
-res://Globals/scene_loader.tscn
 res://Globals/world.tscn
-res://Levels/test_level_1.tscn
-res://Player/player_test.tscn
-res://Levels/test_level_2.tscn
-res://UI/debug_menu.tscn
-res://Globals/game.gd
-res://Globals/save_load.gd
+res://Levels/Test_levels/Test_level_1.tscn
+res://Entities/heartbox.tscn
+res://Entities/Player/player_rigid_test.tscn
+res://Levels/Test_levels/bombom.tscn

@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://btqpmpdwwve1y"]
+[gd_scene load_steps=5 format=3 uid="uid://btqpmpdwwve1y"]
 
 [ext_resource type="Script" path="res://Globals/game.gd" id="1_jbb53"]
 [ext_resource type="PackedScene" uid="uid://cw27rwuokrt5c" path="res://Globals/world.tscn" id="3_1db8u"]
-[ext_resource type="PackedScene" uid="uid://dhe4k3frfjpal" path="res://Player/player_test.tscn" id="3_juwux"]
+[ext_resource type="PackedScene" uid="uid://e8e001lsoemm" path="res://Entities/Player/player_rigid_test.tscn" id="4_2aex5"]
+[ext_resource type="PackedScene" uid="uid://bkgybu3xl0152" path="res://Levels/Test_levels/Test_level_1.tscn" id="4_vunkn"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_jbb53")
 
-[node name="World" parent="." instance=ExtResource("3_1db8u")]
+[node name="World" parent="." node_paths=PackedStringArray("current_level") instance=ExtResource("3_1db8u")]
+current_level = NodePath("TestLevel1")
 
-[node name="Player_test" parent="World" instance=ExtResource("3_juwux")]
+[node name="TestLevel1" parent="World" instance=ExtResource("4_vunkn")]
+
+[node name="Player_Rigid_test" parent="World" instance=ExtResource("4_2aex5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 25.3504, -58)

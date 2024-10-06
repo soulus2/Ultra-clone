@@ -4,6 +4,9 @@ extends Node3D
 @export var fullscreen:bool = false
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
+	
 	if event.is_action_pressed("mouse_capture"):
 		mouse_capture = !mouse_capture
 	if event.is_action_pressed("fullscreen"):
@@ -20,5 +23,3 @@ func _input(event: InputEvent) -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		
-func _ready() -> void:
-	$Scene_loader.load_scene(0)

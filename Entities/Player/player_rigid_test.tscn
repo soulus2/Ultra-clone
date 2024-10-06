@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://e8e001lsoemm"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://6sli354kan1r" path="res://Entities/Player/player_physics_material.tres" id="1_llhrd"]
+[ext_resource type="Script" path="res://Entities/Player/player_rigid_test.gd" id="1_wrq1i"]
+[ext_resource type="Script" path="res://Entities/Player/head.gd" id="2_07kys"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ise0l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uiu4q"]
+
+[node name="Player_Rigid_test" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 8.5
+physics_material_override = ExtResource("1_llhrd")
+script = ExtResource("1_wrq1i")
+drop_velocity = 50.0
+dash_velocity = 50.0
+view_sensitivity = Vector2(20, 20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_ise0l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_uiu4q")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("2_07kys")
+
+[node name="Camera" type="Camera3D" parent="Head"]
+
+[node name="Feet" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
