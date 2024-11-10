@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://e8e001lsoemm"]
+[gd_scene load_steps=8 format=3 uid="uid://e8e001lsoemm"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://6sli354kan1r" path="res://Entities/Player/player_physics_material.tres" id="1_llhrd"]
 [ext_resource type="Script" path="res://Entities/Player/player_rigid_test.gd" id="1_wrq1i"]
@@ -7,6 +7,14 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ise0l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uiu4q"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w2bop"]
+height = 0.2
+radius = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wqngo"]
+height = 0.5
+radius = 0.55
 
 [node name="Player_Rigid_test" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -18,7 +26,7 @@ physics_material_override = ExtResource("1_llhrd")
 script = ExtResource("1_wrq1i")
 drop_velocity = 50.0
 dash_velocity = 50.0
-view_sensitivity = Vector2(20, 20)
+physics_mat = ExtResource("1_llhrd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -34,5 +42,10 @@ script = ExtResource("2_07kys")
 
 [node name="Camera" type="Camera3D" parent="Head"]
 
-[node name="Feet" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+[node name="Ground_cast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_w2bop")
+
+[node name="Wall_cast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_wqngo")

@@ -4,3 +4,4 @@ res://Levels/Test_levels/Test_level_1.tscn
 res://Entities/heartbox.tscn
 res://Entities/Player/player_rigid_test.tscn
 res://Levels/Test_levels/bombom.tscn
+res://Entities/Player/player_rigid_test.gd
