@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://caj3jbu4xgdvj"]
+
+[sub_resource type="Gradient" id="Gradient_0bfp0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4fn66"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_55fi5"]
+width = 2048
+height = 2048
+color_ramp = SubResource("Gradient_0bfp0")
+noise = SubResource("FastNoiseLite_4fn66")
+
+[resource]
+albedo_color = Color(0.118452, 0.486423, 0.142784, 1)
+albedo_texture = SubResource("NoiseTexture2D_55fi5")
+uv1_triplanar = true

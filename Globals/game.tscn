@@ -7,6 +7,8 @@
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_jbb53")
+mouse_capture = true
+fullscreen = true
 
 [node name="World" parent="." node_paths=PackedStringArray("current_level") instance=ExtResource("3_1db8u")]
 current_level = NodePath("TestLevel1")
@@ -14,4 +16,4 @@ current_level = NodePath("TestLevel1")
 [node name="TestLevel1" parent="World" instance=ExtResource("4_vunkn")]
 
 [node name="Player_Rigid_test" parent="World" instance=ExtResource("4_2aex5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 25.3504, -58)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 3.3504, 0)

@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkgybu3xl0152"]
+[gd_scene load_steps=7 format=3 uid="uid://bkgybu3xl0152"]
 
 [ext_resource type="Script" path="res://Levels/Level_template.gd" id="1_xm5xx"]
-[ext_resource type="PackedScene" uid="uid://ncbxa3yklmsy" path="res://Levels/Test_levels/bombom.tscn" id="2_mclv8"]
-[ext_resource type="PackedScene" uid="uid://bad4nnc6bu63v" path="res://Entities/heartbox.tscn" id="3_xntii"]
+[ext_resource type="Material" uid="uid://caj3jbu4xgdvj" path="res://Assets/Materials/grass_noise.tres" id="2_ceppb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y2mrt"]
 
@@ -13,8 +12,8 @@ sky_material = SubResource("ProceduralSkyMaterial_y2mrt")
 background_mode = 2
 sky = SubResource("Sky_jqv24")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lddn3"]
-size = Vector3(300, 1, 300)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkiat"]
+albedo_color = Color(1, 0, 0, 1)
 
 [node name="TestLevel1" type="Node3D"]
 script = ExtResource("1_xm5xx")
@@ -23,18 +22,73 @@ script = ExtResource("1_xm5xx")
 environment = SubResource("Environment_4moyk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 0, 3, 0)
+transform = Transform3D(-0.620176, 0.554699, -0.554699, 0, 0.707107, 0.707107, 0.784463, 0.438531, -0.438531, 0, 3, 0)
 light_angular_distance = 5.0
 shadow_enabled = true
 
 [node name="Player_spwan" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 63.2779, 15.1827, -63.3211)
 
-[node name="bombom" parent="." instance=ExtResource("2_mclv8")]
+[node name="Map" type="CSGCombiner3D" parent="."]
+use_collision = true
 
-[node name="Heartbox" parent="." instance=ExtResource("3_xntii")]
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 0)
+size = Vector3(37, 1, 10)
+material = ExtResource("2_ceppb")
 
-[node name="CollisionShape3D" parent="Heartbox" index="0"]
-shape = SubResource("BoxShape3D_lddn3")
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -4.5)
+size = Vector3(10, 10, 1)
 
-[editable path="Heartbox"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 2.7182e-10, 9.69636e-10, -1.00695e-09, 0.281002, 0.959707, -1.15978e-11, -0.959707, 0.281002, 101, 6.51829, -31.2934)
+size = Vector3(10, 53.3805, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 4.5)
+size = Vector3(10, 10, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Map"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.5, 4.5, 0)
+size = Vector3(10, 10, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 9, 0)
+size = Vector3(10, 10, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 108.964, -0.957659, 0.515423)
+material_override = SubResource("StandardMaterial3D_kkiat")
+size = Vector3(164, 255, 1)
+material = ExtResource("2_ceppb")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Map"]
+transform = Transform3D(0.996521, -3.64323e-09, -0.0833474, -0.0833474, -4.35593e-08, -0.996521, 0, 1, -4.37114e-08, 37.7232, -0.480827, 0.0154238)
+material_override = SubResource("StandardMaterial3D_kkiat")
+size = Vector3(11.5714, 10, 1)
+material = ExtResource("2_ceppb")
+
+[node name="LightmapGI" type="LightmapGI" parent="Map"]
+
+[node name="Building" type="CSGCombiner3D" parent="Map"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 7, -81.768)
+size = Vector3(50, 15, 50)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 6.5, -81.768)
+operation = 2
+size = Vector3(46, 12, 46)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/Building"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 90.8451, 4.53864, -57.0536)
+operation = 2
+size = Vector3(10, 10, 10)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0.000439147, -0.000103211, 0.000103845, -0.00145985, 0.999999, 0.000438996, -0.999999, -0.0014599, 0, 8.4, 0)
+light_energy = 16.0
+spot_range = 9.0
+spot_angle = 54.8826
