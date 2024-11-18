@@ -1,3 +1,7 @@
+Timer
+Label
+VBoxContainer
+Control
 CSGBox3D
 CSGCombiner3D
 LightmapGI
@@ -9,6 +13,3 @@ StaticBody3D
 RigidBody3D
 CollisionShape3D
 MeshInstance3D
-DirectionalLight3D
-Marker3D
-WorldEnvironment

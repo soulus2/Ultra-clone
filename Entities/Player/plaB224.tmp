@@ -25,8 +25,20 @@ axis_lock_angular_z = true
 mass = 8.5
 physics_material_override = ExtResource("1_llhrd")
 script = ExtResource("1_wrq1i")
+jump_velocity = null
 drop_velocity = 50.0
+max_wall_jumps = null
+max_speed = null
+speed = null
 dash_velocity = 50.0
+max_dashes = null
+acceleration = null
+accel_multiplier = null
+view_sensitivity = null
+joy_view_sensitivity = null
+max_fov = null
+min_fov = null
+fov_change_speed = null
 physics_mat = ExtResource("1_llhrd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
